@@ -1,6 +1,8 @@
 import {Nunito} from 'next/font/google';
 import './globals.css'
 import Navbar from './components/Navbar/Navbar';
+import ClientOnly from './components/ClientOnly';
+import Modal from './components/modals/Modal';
 
 export const metadata = {
   title: 'PixTravel',
@@ -21,7 +23,10 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={font.className}>
-      <Navbar />
+        <ClientOnly >
+          <Navbar />
+          <Modal />
+          </ClientOnly>
         {children}
         </body>
     </html>
